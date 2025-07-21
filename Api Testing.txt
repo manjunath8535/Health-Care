@@ -1,0 +1,119 @@
+Register the user.
+Using website Register form:
+
+Email: manjunath@gmail.com
+password: 123456789
+
+---
+1. Authentication APIs
+Login with email and password.
+Method: POST
+URL: http://127.0.0.1:8000/api/auth/login/
+Body (JSON):
+Generated json
+{
+    "email": "manjunath@gmail.com",
+    "password": "123456789"
+}
+
+---
+
+2. Doctor Management APIs
+Creating First Doctor.
+Method: POST
+URL: http://127.0.0.1:8000/api/doctors/
+Authorization: Bearer Token Required
+Body (JSON):
+Generated json
+{
+    "first_name": "Priya",
+    "last_name": "Sharma",
+    "specialty": "Pediatrician",
+    "phone_number": "55669987"
+}
+
+Adding Second Doctor
+Method: POST
+URL: http://127.0.0.1:8000/api/doctors/
+Authorization: Bearer Token Required
+Body (JSON):
+Generated json
+{
+    "first_name": "Amit",
+    "last_name": "Verma",
+    "specialty": "Cardiologist",
+    "phone_number": "5569874"
+}
+
+To see all doctors in db.
+Method: GET
+URL: http://127.0.0.1:8000/api/doctors/
+
+---
+
+3. Patient Management APIs
+To this task user must logined in.
+Adding a New Patient
+Method: POST
+URL: http://127.0.0.1:8000/api/patients/
+Authorization: Bearer Token Required
+Body (JSON):
+Generated json
+{
+    "first_name": "Rohan",
+    "last_name": "Patil",
+    "date_of_birth": "1985-05-20",
+    "address": "12B, Sunshine Apartments, India",
+    "phone_number": "256478963"
+}
+
+To see the all patients.
+Method: GET
+URL: http://127.0.0.1:8000/api/patients/
+Authorization: Bearer Token Required
+
+Get specific patient details. Use id to get the details.
+Method: GET
+(/api/patients/'id' => Change it to get indiviual details)
+URL: http://127.0.0.1:8000/api/patients/1/ 
+Authorization: Bearer Token Required
+Body: None.
+
+---
+
+4. Patient-Doctor Mapping APIs
+Now Assigning doctor to patients.
+Method: POST
+URL: http://127.0.0.1:8000/api/mappings/
+Authorization: Bearer Token Required
+Body (JSON): (Use the actual IDs you received)
+Generated json
+{
+    "patient": 1,
+    "doctor": 2
+}
+
+Assign a Second Doctor to the Same Patient
+Method: POST
+URL: http://127.0.0.1:8000/api/mappings/
+Authorization: Bearer Token Required
+Body (JSON): (Use the actual IDs you received)
+Generated json
+{
+    "patient": 1,
+    "doctor": 3
+}
+
+Get All Doctors for a Specific Patient.
+Method: GET
+(/api/mappings/'id' => Change it to get indiviual details)
+URL: http://127.0.0.1:8000/api/mappings/1/ 
+Authorization: Bearer Token Required
+Body: None.
+
+Removing a Doctor From a Patient
+Method: DELETE
+(api/mappings/detail/'id' To remove specific patient using id.)
+URL: http://127.0.0.1:8000/api/mappings/detail/2/ (
+Authorization: Bearer Token Required
+Body: None.
